@@ -1,5 +1,7 @@
+//import { async } from '@firebase/util';
 import React, { useState } from 'react'
-
+import {crearRestaurante}from './restauranteService';
+import Swal from 'sweetalert2';
 
 export const Nuevo = () => {
 
@@ -12,10 +14,23 @@ export const Nuevo = () => {
   }
 
   
-  const handleOnSubmit = (e) => {
+  
+  const handleOnSubmit = async (e) => {
     e.preventDefault(); 
     console.log(valoresFormulario);
+    try {
+      Swal.fire({ allowOutsideClick: false, text: 'Cargando informacion' });
+      Swal.showLoading();
+      await crearRestaurante(valoresFormulario);
+      Swal.close();
+      crearRestaurante(valoresFormulario);
+      console.log('Creando nuevo restaurante');
+      setValoresFormulario({ nombre : '', descripcion : '', direccion: '' ,imagen : ''});
+    } catch(error){
+      console.log(error);
+    }
   }
+
 
   return (
     <div className="container-fluid mt-3">
