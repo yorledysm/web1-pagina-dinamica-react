@@ -16,21 +16,21 @@ export const Navbar = () => {
                             <NavLink 
                                 className={ ({ isActive }) => `nav-link ${ isActive ? 'active' : '' }` }                                
                                 to="/inicio">
-                                Inicio
+                                Restarants
                             </NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink 
                                 className={ ({ isActive }) => `nav-link ${ isActive ? 'active' : '' }` } 
                                 to="/nuevo">
-                                Nuevo
+                                New
                             </NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink 
                                 className={ ({ isActive }) => `nav-link ${ isActive ? 'active' : '' }` } 
                                 to="/buscar">
-                                Buscar
+                               Search
                             </NavLink>
                         </li>
                     </ul>

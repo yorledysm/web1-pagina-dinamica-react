@@ -1,30 +1,33 @@
-//import { async } from '@firebase/util';
-//import { async } from '@firebase/util';
-import {collection, doc, setDoc, getDoc, Firestore} from 'firebase/firestore/lite';
-import {FirebaseFirestore} from './firebase';
-const crearRestaurante= async (restaurante)=>{
-  const nuevoD=doc(collection(FirebaseFirestore, '/restaur'));
- await setDoc(nuevoD, restaurante); // llamando asicrono
-}
-const listarRestaurante= async()=>{
-    console.log('Listar restauarante');
- const restauranteRef=doc(collection(FirebaseFirestore, '/restaur'));
- const docs= await getDoc(restauranteRef);
- const restaurante =[];
- docs.forEach((document) => {
-    
-        console.log(document.nombre, document.data());
-        restaurante.push({ nombre: document.nombre, 
-            descripcion: document.data().descripcion,
-            direccion: document.data().direccion,
-            imagen: 'https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-        });
-   
 
-    return restaurante;
- })
+import { collection, doc, setDoc, getDocs} from 'firebase/firestore/lite';
+import { FirebaseFirestore } from './firebase';
+
+const crearRestaurante = async (restaurante) => {  // va enviar el objeto de restaurante
+    const nuevoDoc = doc(collection(FirebaseFirestore, '/restaur'));
+    await setDoc(nuevoDoc, restaurante); // llamado asincrono a firebase para guardar
+    console.log('restaurante creado');
 }
-export{
- crearRestaurante,
- listarRestaurante,
+
+const listarRestaurante = async () => {
+    console.log('aqui');
+    const restsRef = collection(FirebaseFirestore, '/restaur');
+    // arreglo de documentos de la collecion de productos
+    const docs = await getDocs(restsRef); // llamado a la base de datos firestore
+    const restaurantes = [];
+    docs.forEach(document => {
+        console.log(document.id, document.data());
+        restaurantes.push({ id: document.id, 
+            nombre: document.data().nombre,
+            direccion: document.data().direccion,
+            descripcion: document.data().descripcion,
+            imagen: document.data().imagen,
+        });
+    });
+    console.log(restaurantes);
+    return restaurantes;
+}
+
+export {
+    crearRestaurante,
+    listarRestaurante,
 }

@@ -1,10 +1,20 @@
 import React, { useState } from 'react';
-import { listaRestaurante} from './Restaurantes';
+import {listaRestaurante} from './Restaurantes';
+
+
 
 const Buscar = () => {
     const [valoresFormulario, setValoresFormulario] = useState({});
     const { nombre = '' } = valoresFormulario;
     const [resultado, setResultado] = useState([]);
+    const [filfirebase,setfilfirebase]= useState([]);
+
+   const valueBusqueda=[ 
+    { nombre}
+
+
+   ]
+
 
     const handleOnChange = (e) => {
        
@@ -26,8 +36,9 @@ const Buscar = () => {
             .filter(hshshs => hshshs.nombre.toUpperCase().includes(nombre.toUpperCase()));
         console.log(resultado);
         setResultado(filtro);
-    }
 
+    }
+    
     return (
         <div className="container-fluid mt-3">
             <div className='row'>
@@ -55,6 +66,7 @@ const Buscar = () => {
                                             <div className="card-body">
                                                 <h5 className="card-title">{asasas.nombre}</h5>
                                                 <p className="card-text">{asasas.descripcion}</p>
+                                                <p className="card-text">{asasas.direccion}</p>
                                             </div>
                                         </div>
                                     </div>

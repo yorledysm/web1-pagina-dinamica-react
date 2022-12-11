@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar } from './Navbar';
-import { Routes, Route, Navigate, BrowserRouter } from 'react-router-dom'; 
+import { Routes, Route, Navigate, BrowserRouter } from 'react-router-dom';
 import { Inicio } from './Inicio';
 import { Nuevo } from './Nuevo';
 import { Buscar } from './Buscar';
@@ -17,7 +17,7 @@ export const MainApp = () => {
                 <Route path='*' element={<Navigate to='/inicio' />} />
             </Routes>
         </BrowserRouter>
-        
+
     </>
 }
 
