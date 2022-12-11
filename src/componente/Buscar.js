@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {listaRestaurante} from './Restaurantes';
+import {listaRestaurante} from '../data/Restaurantes';
 
 
 

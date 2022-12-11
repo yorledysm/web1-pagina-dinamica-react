@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {listarRestaurante} from './restauranteService';
+import {listarRestaurante} from '../service/restauranteService';
 import Swal from 'sweetalert2';
 import { useEffect } from 'react';
 //import { listaRestaurante } from './Restaurantes';

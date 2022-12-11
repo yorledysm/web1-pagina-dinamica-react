@@ -1,6 +1,6 @@
 
 import { collection, doc, setDoc, getDocs} from 'firebase/firestore/lite';
-import { FirebaseFirestore } from './firebase';
+import { FirebaseFirestore } from '../config/firebase';
 
 const crearRestaurante = async (restaurante) => {  // va enviar el objeto de restaurante
     const nuevoDoc = doc(collection(FirebaseFirestore, '/restaur'));

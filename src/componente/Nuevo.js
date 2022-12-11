@@ -1,6 +1,6 @@
 //import { async } from '@firebase/util';
 import React, { useState } from 'react'
-import {crearRestaurante}from './restauranteService';
+import {crearRestaurante}from '../service/restauranteService';
 
 import Swal from 'sweetalert2';
 
